@@ -13,7 +13,6 @@ public class PlayerScoreboard {
 
     private Score prefix = null;
     private Score money = null;
-    private Score dividerOne = null;
 
     public void setPlayerInfoScoreboard(Player p) {
         String prefixText = Core.colorize(Core.chat.getPlayerPrefix(p));
@@ -24,10 +23,8 @@ public class PlayerScoreboard {
                 ChatColor.LIGHT_PURPLE + "Balance: " + ChatColor.GREEN + Core.econ.format(Core.econ.getBalance(p))
         );
         prefix = playerInfoObjective.getScore(ChatColor.LIGHT_PURPLE + "Rank: " + prefixText);
-        dividerOne = playerInfoObjective.getScore("");
         money.setScore(1);
         prefix.setScore(2);
-        dividerOne.setScore(3);
         p.setScoreboard(board);
     }
 
@@ -42,10 +39,8 @@ public class PlayerScoreboard {
                 ChatColor.LIGHT_PURPLE + "Balance: " + ChatColor.GREEN + Core.econ.format(Core.econ.getBalance(p))
         );
         prefix = playerInfoObjective.getScore(ChatColor.LIGHT_PURPLE + "Rank: " + prefixText);
-        dividerOne = playerInfoObjective.getScore("");
         money.setScore(1);
         prefix.setScore(2);
-        dividerOne.setScore(3);
         p.setScoreboard(board);
     }
 }
