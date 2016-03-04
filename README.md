@@ -54,3 +54,4 @@ Our pom.xml is as follows:
             </dependency>
         </dependencies>
     </project>
+Please use it in the root of your fork to get the proper dependencies.
