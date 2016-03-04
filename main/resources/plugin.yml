@@ -1,4 +1,4 @@
 name: UmbraCore
 main: com.umbrafactions.umbracore.Core
 version: 0.1.2
-depend: [NametagEdit]
+depend: [Vault]

@@ -4,7 +4,6 @@ import java.sql.*;
 
 public class SQLInterface {
     private final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    // TODO: Store these credentials in a config.yml
     private final String DB_HOST = "209.105.225.66";
     private final String DB_USER = "mc27774";
     private final String DB_NAME = "mc27774";
