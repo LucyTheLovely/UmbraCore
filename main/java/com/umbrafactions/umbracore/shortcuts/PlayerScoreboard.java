@@ -31,7 +31,6 @@ public class PlayerScoreboard {
         dividerOne = playerInfoObjective.getScore("");
         money.setScore(1);
         prefix.setScore(2);
-        nameTagPrefix.setScore(1);
         dividerOne.setScore(3);
         p.setScoreboard(board);
     }
@@ -53,7 +52,6 @@ public class PlayerScoreboard {
         dividerOne = playerInfoObjective.getScore("");
         money.setScore(1);
         prefix.setScore(2);
-        nameTagPrefix.setScore(1);
         dividerOne.setScore(3);
         p.setScoreboard(board);
     }
