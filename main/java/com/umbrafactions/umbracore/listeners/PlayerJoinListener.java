@@ -2,7 +2,6 @@ package com.umbrafactions.umbracore.listeners;
 
 import com.umbrafactions.umbracore.Core;
 import com.umbrafactions.umbracore.shortcuts.PlayerScoreboard;
-import com.umbrafactions.umbracore.SQLInterface;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -24,7 +23,6 @@ public final class PlayerJoinListener implements Listener {
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
         playerScoreboard.setPlayerInfoScoreboard(player);
-        plugin.getLogger().info("Player " + player.getName() + " has prefix " + Core.chat.getPlayerPrefix(player));
 //        String uuid = player.getUniqueId().toString();
 //        boolean entryExists = false;
 //        ResultSet query = sql.queryDatabase("SELECT * FROM `time_log` WHERE `UUID` = \"" + uuid + "\"");

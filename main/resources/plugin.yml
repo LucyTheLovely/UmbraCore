@@ -1,4 +1,8 @@
 name: UmbraCore
 main: com.umbrafactions.umbracore.Core
-version: 0.2.4
+version: 0.2.7
 depend: [Vault]
+commands:
+  report:
+    description: Report a player
+    usage: /report [player] [reason]

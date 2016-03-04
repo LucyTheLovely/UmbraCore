@@ -1,4 +1,4 @@
-package com.umbrafactions.umbracore;
+package com.umbrafactions.umbracore.shortcuts;
 
 import java.sql.*;
 

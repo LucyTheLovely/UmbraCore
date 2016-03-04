@@ -1,7 +1,7 @@
 package com.umbrafactions.umbracore.listeners;
 
 import com.umbrafactions.umbracore.Core;
-import com.umbrafactions.umbracore.SQLInterface;
+import com.umbrafactions.umbracore.shortcuts.SQLInterface;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
