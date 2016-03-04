@@ -9,6 +9,9 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class Report implements CommandExecutor {
     private Core plugin;
     private SQLInterface sql = new SQLInterface();
@@ -23,6 +26,28 @@ public class Report implements CommandExecutor {
     @SuppressWarnings("deprecation")
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (args.length > 1) {
+            if (args[0].equalsIgnoreCase("list") && sender.hasPermission("report.moderate")) {
+                ResultSet results = sql.queryDatabase("SELECT * FROM player_reports LIMIT 8");
+                boolean entryExists = false;
+                sender.sendMessage(ChatColor.GRAY + "--------------------");
+                try {
+                    if (results.next()) {
+                        entryExists = true;
+                    }
+                } catch (SQLException se) {
+                    se.printStackTrace();
+                }
+                if (entryExists) {
+                    try {
+                        results.beforeFirst();
+                        while (results.next()) {
+                            // TODO: Display reports as a list
+                        }
+                    } catch (SQLException se) {
+                        se.printStackTrace();
+                    }
+                }
+            }
             if (plugin.getServer().getPlayer(args[0]) != null) {
                 Player reported = plugin.getServer().getPlayer(args[0]);
                 Player reporter = plugin.getServer().getPlayer(sender.getName());
@@ -40,9 +65,11 @@ public class Report implements CommandExecutor {
                                     "\"" + parsedReason + "\"" +
                                     ")"
                     );
-                    sender.sendMessage(String.format("%sSuccessfully sent report for %s%s with reason \"%s\"!",
+                    sender.sendMessage(String.format("%sSuccessfully sent report for %s%s with reason %s\"%s\"%s!",
                             ChatColor.GREEN,
                             reported.getDisplayName(),
+                            ChatColor.GREEN,
+                            ChatColor.RED,
                             ChatColor.GREEN,
                             parsedReason));
                 } else {

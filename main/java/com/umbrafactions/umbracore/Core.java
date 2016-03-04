@@ -2,14 +2,16 @@ package com.umbrafactions.umbracore;
 
 import com.umbrafactions.umbracore.commands.Report;
 import com.umbrafactions.umbracore.listeners.LaunchPadListener;
+import com.umbrafactions.umbracore.listeners.PlayerDeathListener;
 import com.umbrafactions.umbracore.listeners.PlayerJoinListener;
 import com.umbrafactions.umbracore.listeners.PlayerQuitListener;
-//import com.umbrafactions.umbracore.runnables.UpdatePlayerScoreboard;
-
+import com.umbrafactions.umbracore.runnables.UpdatePlayerScoreboard;
 import com.umbrafactions.umbracore.shortcuts.SQLInterface;
+
 import net.milkbowl.vault.chat.Chat;
 import net.milkbowl.vault.economy.Economy;
 import net.milkbowl.vault.permission.Permission;
+
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -35,13 +37,14 @@ public class Core extends JavaPlugin {
         setupPermissions();
         setupChat();
 
-//        getServer().getPluginManager().registerEvents(new PlayerJoinListener(this), this);
-//        getServer().getPluginManager().registerEvents(new PlayerQuitListener(this), this);
+        getServer().getPluginManager().registerEvents(new PlayerJoinListener(this), this);
+        getServer().getPluginManager().registerEvents(new PlayerQuitListener(this), this);
         getServer().getPluginManager().registerEvents(new LaunchPadListener(this), this);
+        getServer().getPluginManager().registerEvents(new PlayerDeathListener(this), this);
 
         this.getCommand("report").setExecutor(new Report(this));
 
-//        scheduler.scheduleSyncRepeatingTask(this, new UpdatePlayerScoreboard(this), 0L, 20*5L);
+        scheduler.scheduleSyncRepeatingTask(this, new UpdatePlayerScoreboard(this), 0L, 20*5L);
     }
 
     @Override
